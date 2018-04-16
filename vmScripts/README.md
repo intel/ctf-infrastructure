@@ -43,7 +43,7 @@ Some VMs, such as those from Vulnhub, Metasploitable, etc, will not auto populat
 1. ensure you can ping `192.168.122.1` (the openVPN server)
 1. change any flags or configurations of the VM
 1. run `reSnap.sh` with the VMs name
-1. Add the VM to the restart service
+1. Add the VM to the restart service by following the below directions
 1. Enjoy your new VM!
 
 ### Ones we control and built
@@ -62,4 +62,4 @@ Some VMs, such as those from Vulnhub, Metasploitable, etc, will not auto populat
 
 ### KVM Host
 
-1. Add vm to `rebootable` in `restartService` if it can be rebooted
+1. Add vm to `/opt/ctf/rebootable` in `restartService` if it can be rebooted
