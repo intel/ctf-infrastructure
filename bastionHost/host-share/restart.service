@@ -1,0 +1,11 @@
+[Unit]
+Description=Restart Service
+
+[Service]
+Type=simple
+User=vagrant
+WorkingDirectory=/var/www/ctfBastion/restartService/
+ExecStart=/var/www/ctfBastion/restartService/restart.py
+
+[Install]
+WantedBy=multi-user.target

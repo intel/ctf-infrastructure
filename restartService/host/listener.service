@@ -1,0 +1,11 @@
+[Unit]
+Description=Listener Service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/ctf/
+ExecStart=/opt/ctf/venv/bin/python3 listener.py
+
+[Install]
+WantedBy=multi-user.target

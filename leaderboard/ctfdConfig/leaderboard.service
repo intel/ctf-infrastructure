@@ -1,0 +1,10 @@
+[Unit]
+Description=CTFd Leaderboard
+
+[Service]
+Type=simple
+WorkingDirectory=/home/vagrant/CTFd/
+ExecStart=/usr/local/bin/gunicorn --bind 0.0.0.0:5000 -w 4 'CTFd:create_app()'
+
+[Install]
+WantedBy=multi-user.target

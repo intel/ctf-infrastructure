@@ -1,0 +1,42 @@
+# -*- mode: ruby -*-
+
+# Copyright (C) 2018 Intel Corporation
+# SPDX-License-Identifier: Apache-2.0
+
+Vagrant.configure("2") do |config|
+
+  config.vm.define :ctfBastion do |ctf|
+
+    ctf.vm.box = "ctf-ubuntu1604"
+    ctf.vm.hostname = "ctfBastion"    
+  
+    ctf.vm.provider :libvirt do |domain|
+      domain.memory = 2048
+      domain.cpus = 2
+    end
+    
+    ctf.vm.provision "shell", :path => "vagrant_setup.sh"
+    
+    ctf.vm.network :public_network,
+      :dev => "virbr1337",
+      :mode => "bridge",
+      :type => "bridge",
+      :ip => "192.168.124.232"
+
+    ctf.vm.network :public_network,
+      :dev => "enp1s0f0",
+      :mode => "bridge",
+      :type => "direct",
+      use_dhcp_assigned_default_route: true
+    end
+
+    #options for libvirt vagrant provider
+    config.vm.provider :libvirt do |libvirt|
+      libvirt.driver = "kvm"
+      libvirt.storage_pool_name = "virtimages"
+    
+    config.vm.synced_folder "host-share", "/home/vagrant/host-share"
+    config.vm.synced_folder "../restartService/ctfBastion", "/var/www/ctfBastion/restartService"
+
+  end
+end

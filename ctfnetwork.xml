@@ -1,0 +1,11 @@
+<network>
+  <name>CTF-Network</name>
+  <bridge name="virbr1337" />
+  <ip address="192.168.124.1" netmask="255.255.254.0">
+    <dhcp>
+      <range start="192.168.124.2" end="192.168.125.254" />
+    </dhcp>
+    <route address="192.168.122.0" prefix="23" gateway="192.168.121.79"/>
+  </ip>
+  <route address="192.168.122.0" prefix="23" gateway="192.168.124.232"/>
+</network>

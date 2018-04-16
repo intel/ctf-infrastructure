@@ -1,0 +1,34 @@
+{% include 'includes.html' %}
+
+<b>A virtual machine can be refreshed every 5 minutes.</b> 
+<b>Only some virtual machines can be rebooted.</b> 
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr><th>VM</th><th>Last Refreshed</th><th>Refresh</th><th>Reboot</th></tr>
+    </thead>
+    
+    <tbody>
+    
+        {% for machineName in machineNames %}
+    
+            <tr>
+                <td> 
+                    {{ machineName.vmName }}
+                </td>
+                <td>
+                    {{ machineName.lastRefresh }}
+                </td>
+                <td>
+                    <a href="/refresh/{{ machineName.vmName }}">Refresh</a>
+              </td>
+                <td>
+                    <a href="/reboot/{{ machineName.vmName }}">Reboot</a>
+              </td>
+            </tr>
+    
+        {% endfor %}
+
+    </tbody>
+</table>

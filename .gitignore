@@ -1,0 +1,9 @@
+venv
+*.vagrant/*
+*.vmdk
+*.rar
+*.zip
+*.db
+*~
+*__
+

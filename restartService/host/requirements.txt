@@ -1,0 +1,7 @@
+flask
+flask-restful
+flask-testing
+flask_sqlalchemy
+sqlalchemy
+sqlalchemy_utils
+requests
